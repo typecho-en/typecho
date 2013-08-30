@@ -57,7 +57,7 @@ class IXR_Server
     private $message;
 
     /**
-     * Default Params
+     * Default Parameters
      *
      * @access private
      * @var array
