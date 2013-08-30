@@ -1,6 +1,6 @@
 <?php
 /**
- * API方法,Typecho命名空间
+ * API方法, Typecho Namespace
  *
  * @category typecho
  * @package Common
@@ -19,11 +19,11 @@
  */
 class Typecho_Common
 {
-    /** 程序版本 */
+    /** Typecho Version */
     const VERSION = '0.8/10.8.15';
 
     /**
-     * 缓存的包含路径
+     * Caced Include Path
      *
      * @access private
      * @var array
@@ -31,7 +31,7 @@ class Typecho_Common
     private static $_cachedIncludePath = false;
 
     /**
-     * 锁定的代码块
+     * Locked Code Block
      *
      * @access private
      * @var array
@@ -39,7 +39,7 @@ class Typecho_Common
     private static $_lockedBlocks = array('<p></p>' => '');
     
     /**
-     * 允许的标签
+     * Allowable Tag
      * 
      * @access private
      * @var array
@@ -47,7 +47,7 @@ class Typecho_Common
     private static $_allowableTags = '';
     
     /**
-     * 允许的属性
+     * Allowable Attributes
      * 
      * @access private
      * @var array
@@ -55,7 +55,7 @@ class Typecho_Common
     private static $_allowableAttributes = array();
 
     /**
-     * 默认编码
+     * Default Charset
      *
      * @access public
      * @var string
@@ -63,7 +63,7 @@ class Typecho_Common
     public static $charset = 'UTF-8';
 
     /**
-     * 异常处理类
+     * Exception Handle
      *
      * @access public
      * @var string
@@ -71,7 +71,7 @@ class Typecho_Common
     public static $exceptionHandle;
 
     /**
-     * 锁定标签回调函数
+     * Locked 锁定标签回调函数
      *
      * @access private
      * @param array $matches 匹配的值
@@ -1392,7 +1392,7 @@ EOF;
      * 寻找匹配的mime图标
      *
      * @access public
-     * @param string $mime mime类型
+     * @param string $mime mime type
      * @return string
      */
     public static function mimeIconType($mime)

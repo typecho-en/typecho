@@ -19,7 +19,7 @@ require_once 'IXR/Request.php';
 /** IXR Error */
 require_once 'IXR/Error.php';
 
-/** IXR Data */
+/** IXR Date */
 require_once 'IXR/Date.php';
 
 /** IXR Base64 Code */
@@ -288,7 +288,7 @@ class IXR_Client
     }
 
     /**
-     * Fet Error Information
+     * Get Error Information
      *
      * @access public
      * @return void
