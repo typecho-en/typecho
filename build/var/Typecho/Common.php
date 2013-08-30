@@ -1,6 +1,6 @@
 <?php
 /**
- * API方法, Typecho Namespace
+ * API Method, Typecho Namespace
  *
  * @category typecho
  * @package Common
@@ -10,7 +10,7 @@
  */
 
 /**
- * Typecho公用方法
+ * Typecho Common Method
  *
  * @category typecho
  * @package Common
@@ -248,7 +248,7 @@ class Typecho_Common
     }
 
     /**
-     * 程序初始化方法
+     * Program Initizing Method
      *
      * @access public
      * @return void
@@ -992,7 +992,7 @@ EOF;
 
         /** Detect Scrambler Length */
         if (strlen($salt) != 9) {
-            /** 如果不是9直接返回 */
+            /** It will return directly if it's not 9 */
             return;
         }
 
@@ -1010,8 +1010,8 @@ EOF;
      * 判断hash值是否相等
      *
      * @access public
-     * @param string $from 源字符串
-     * @param string $to 目标字符串
+     * @param string $from Original String
+     * @param string $to Target String
      * @return boolean
      */
     public static function hashValidate($from, $to)

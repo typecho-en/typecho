@@ -201,8 +201,8 @@ list($prefixVersion, $suffixVersion) = explode('/', $currentVersion);
                             $loginUrl = _u() . '/admin/index.php';
                         }
                     ?>
-                        <li><a href="<?php echo $loginUrl; ?>"><?php _e('Click Here to Control Panel'); ?></a></li>
-                        <li><a href="<?php echo _u(); ?>/index.php"><?php _e('Click Here to your blog'); ?></a></li>
+                        <li><a href="<?php echo $loginUrl; ?>"><?php _e('Click Here To View Control Panel'); ?></a></li>
+                        <li><a href="<?php echo _u(); ?>/index.php"><?php _e('Click Here To View Your Blog'); ?></a></li>
                     </ul>
                     </div>
 
