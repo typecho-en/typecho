@@ -2,13 +2,13 @@
 -- version 2.11.5
 -- http://www.phpmyadmin.net
 --
--- 主机: localhost
--- 生成日期: 2008 年 07 月 06 日 18:00
--- 服务器版本: 5.0.51
--- PHP 版本: 5.2.5
+-- Host: localhost
+-- Generated: 2008 年 07 月 06 日 18:00
+-- MySQL Version: 5.0.51
+-- PHP Version: 5.2.5
 
 --
--- 数据库: `typecho`
+-- Database: `typecho`
 --
 
 -- --------------------------------------------------------
