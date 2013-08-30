@@ -10,7 +10,7 @@ Typecho 0.8 - 10.8.15 构建
 ###授权协议
 采用GUN v2协议（与Tyoecho原程序协议相同）
 ###项目地址
-+ github https://github.com/YoungZhao/translate-typecho  
++ github https://github.com/typecho-en/typecho  
 + gitcafe  
 + google code
 
