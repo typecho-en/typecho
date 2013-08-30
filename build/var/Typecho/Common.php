@@ -71,10 +71,10 @@ class Typecho_Common
     public static $exceptionHandle;
 
     /**
-     * Locked 锁定标签回调函数
+     * Locked Tag Callback Function
      *
      * @access private
-     * @param array $matches 匹配的值
+     * @param array $matches Matched Value
      * @return string
      */
     public static function __lockHTML(array $matches)
@@ -101,10 +101,10 @@ class Typecho_Common
     }
 
     /**
-     * 检查是否为安全路径
+     * Detect if it's safe paths
      *
      * @access public
-     * @param string $path 检查是否为安全路径
+     * @param string $path Detect if it's safe paths
      * @return boolean
      */
     public static function __safePath($path)
@@ -114,11 +114,11 @@ class Typecho_Common
     }
     
     /**
-     * html标签过滤
+     * HTML Tag Filter
      * 
      * @access public
-     * @param string $tag 标签
-     * @param string $attrs 属性
+     * @param string $tag Tag
+     * @param string $attrs Attribute
      * @return string
      */
     public static function __tagFilter($tag, $attrs)
@@ -150,10 +150,10 @@ class Typecho_Common
     }
 
     /**
-     * 自闭合标签过滤
+     * Auto-close Tag Filter
      * 
      * @access public
-     * @param array $matches 匹配值
+     * @param array $matches Matched Value
      * @return string
      */
     public static function __closeTagFilter($matches)
@@ -166,7 +166,7 @@ class Typecho_Common
      * 解析属性
      * 
      * @access public
-     * @param string $attrs 属性字符串
+     * @param string $attrs Attribute String
      * @return array
      */
     public static function __parseAtttrs($attrs)
@@ -183,7 +183,7 @@ class Typecho_Common
             if ('=' != $attrs[$i] && !ctype_space($attrs[$i]) && -1 == $pos) {
                 $key .= $attrs[$i];
                 
-                /** 最后一个 */
+                /** Last one */
                 if ($i == $len - 1) {
                     if ('' != ($key = trim($key))) {
                         $result[$key] = '';
@@ -227,8 +227,8 @@ class Typecho_Common
      * 清除属性空格
      * 
      * @access public
-     * @param string $attr 属性
-     * @param string $quote 引号
+     * @param string $attr Attribute
+     * @param string $quote Quote
      * @return string
      */
     public static function __attrTrim($attr, &$quote)
@@ -255,13 +255,13 @@ class Typecho_Common
      */
     public static function init()
     {
-        /** 输出logo */
+        /** Inputing logo */
         if (isset($_GET['464D-E63E-9D08-97E2-16DD-6A37-BDEC-6021'])) {
             header('content-Type: image/gif', true);
             die(base64_decode('R0lGODlhXQAVANUAAP////Pz8+bm5tnZ2c3NzcDAwLOzs5mZmY2NjeR+ANp6A9l5A4CAgM51BsNwCsNwCbhrDXNzc61nEKxmEKFiE6JiE2ZmZpddFpZdFoxZGYtYGoFUHYBUHVlZWXZPIHVPIGtLI2pKI01NTV9GJlRBKVRBKkBAQEk8LT44MD03MDMzMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAHAP8ALAAAAABdABUAAAb/QJVwSCwaj8ikUgjxLJ9Gj+JELBSg2OwyodFCSYkKkUDwms3cs5E0GlYSVCFZTX+m60IpSnhKXIZzeEonI21HKIVxQlyIhkaEjkVOQg2TKhIKKggHAgIHCEMmByZEERFCHaAmEQcHp0ckDgmzCxlEKG+zCRAkiw4LtCBEIw26CbZFEIYXD0MeCSQBANMAAUMWABZjZSoHAAzS1AGvQyAJDRwjIRQJDnsoshSFGAsLVLPKIbKGz+jq7A6KjBCjAsweFSgSbJDD7Vq2bUK8ARjwKsIAAORQLHBHREKaCQlKEDmhIYWKdkNSLKCg4sTGg3nuDGm2yJGCPyoCOdQGiJu3/wGkQg0IEJQDtCEjIJwr0QdDEpkqIEBQgQGOkQkLilSIAwFZ1Kk5GwrBxpNhxIdFsDFg0oDPmwUchIxIEKkIVKlRAxrZQJdIBkNdh+ANmxat2W4AkAA4wOQBigyzMJgUEqIvkrtTB0uyLOQvE6+DdY41TBhxUCImFgupqmCXIhInSkC120Xw1Kow3SSYLGTr55kSDu+EiJhxEW8d+CRYEAmMUwgLehERdrI2k6mygxMBw5IIzZOOjgkpIECIieQmAlxBBcDntLVDGABYL8QoBGEoNtSjUqKeBxQneFCMSJgJocEuwpyQgQIN8KbCQEIYJFcC1EXQHiflqSDfAAcYIJ+NexdxeECIpwnxATC6QKBICbLo0kAIi1j31RAcoIiPg1Et890FCcAUgQAACACfChZVY8AA7nVz0URDFpFCCBp8oAgRJWigAYxDSDlMJCl8oAEHIkUxRCVDKABWFoF4I8iaUOgRkyVIdFCWCgKspyabeCLBxphtLVEAAKoYgNadeRZ6BF9wImHCku8NQaihkAqRXxasICACEalEqqkRQQAAOw=='));
         }
 
-        /** 设置自动载入函数 */
+        /** Setting Auto-Load function */
         function __autoLoad($className)
         {
             /**
@@ -272,7 +272,7 @@ class Typecho_Common
             @include_once str_replace('_', '/', $className) . '.php';
         }
 
-        /** 兼容php6 */
+        /** php6 Compatibility */
         if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
             $_GET = self::stripslashesDeep($_GET);
             $_POST = self::stripslashesDeep($_POST);
@@ -283,12 +283,12 @@ class Typecho_Common
             reset($_COOKIE);
         }
 
-        /** 设置异常截获函数 */
+        /** Setting Exception Handler Function */
         set_exception_handler(array('Typecho_Common', 'exceptionHandle'));
     }
 
     /**
-     * 异常截获函数
+     * Exception Handle Function
      *
      * @access public
      * @param Exception $exception 截获的异常
@@ -324,10 +324,10 @@ class Typecho_Common
     }
 
     /**
-     * 输出错误页面
+     * Outputing Error Pages
      *
      * @access public
-     * @param mixed $exception 错误信息
+     * @param mixed $exception Error Information
      * @return void
      */
     public static function error($exception)
@@ -374,7 +374,7 @@ class Typecho_Common
         }
 
 
-        /** 设置http code */
+        /** Setting http code */
         if (is_numeric($code) && $code > 200) {
             require_once 'Typecho/Response.php';
             Typecho_Response::setStatus($code);
@@ -455,7 +455,7 @@ EOF;
     }
 
     /**
-     * 判断类是否能被加载
+     * Detect if class can be loaded
      * 此函数会遍历所有的include目录, 所以会有一定的性能消耗, 但是不会很大
      * 可是我们依然建议你在必须检测一个类能否被加载时使用它, 它通常表现为以下两种情况
      * 1. 当需要被加载的类不存在时, 系统不会停止运行 (如果你不判断, 系统会因抛出严重错误而停止)
@@ -510,7 +510,7 @@ EOF;
 
     /**
      * 抽取多维数组的某个元素,组成一个新数组,使这个数组变成一个扁平数组
-     * 使用方法:
+     * Use:
      * <code>
      * <?php
      * $fruit = array(array('apple' => 2, 'banana' => 3), array('apple' => 10, 'banana' => 12));
@@ -543,7 +543,7 @@ EOF;
     }
 
     /**
-     * 根据parse_url的结果重新组合url
+     * Rebuilding url according to parse_url results
      *
      * @access public
      * @param array $params 解析后的参数
@@ -561,7 +561,7 @@ EOF;
     }
 
     /**
-     * 根据count数目来输出字符
+     * Outputing letter according to count
      * <code>
      * echo splitByCount(20, 10, 20, 30, 40, 50);
      * </code>
@@ -638,7 +638,7 @@ EOF;
 
     /**
      * 去掉字符串中的html标签
-     * 使用方法:
+     * Use:
      * <code>
      * $input = '<a href="http://test/test.php" title="example">hello</a>';
      * $output = Typecho_Common::stripTags($input, <a href="">);
@@ -893,7 +893,7 @@ EOF;
      */
     public static function removeParagraph($html)
     {
-        /** 锁定标签 */
+        /** Locking Tag */
         $html = self::lockHTML($html);
         $html = str_replace(array("\r", "\n"), '', $html);
     
@@ -908,7 +908,7 @@ EOF;
     }
     
     /**
-     * 锁定标签
+     * Locking Tag
      * 
      * @access public
      * @param string $html 输入串
@@ -920,7 +920,7 @@ EOF;
     }
     
     /**
-     * 释放标签
+     * Unlocking Tag
      * 
      * @access public
      * @param string $html 输入串
@@ -951,7 +951,7 @@ EOF;
     }
 
     /**
-     * 生成随机字符串
+     * Generating Random String
      *
      * @access public
      * @param integer $length 字符串长度
@@ -983,7 +983,7 @@ EOF;
      */
     public static function hash($string, $salt = NULL)
     {
-        /** 生成随机字符串 */
+        /** Generating Random String */
         $salt = empty($salt) ? self::randString(9) : $salt;
         $length = strlen($string);
         $hash = '';
@@ -1025,11 +1025,11 @@ EOF;
     }
 
     /**
-     * 将路径转化为链接
+     * Path to Prefix
      *
      * @access public
-     * @param string $path 路径
-     * @param string $prefix 前缀
+     * @param string $path Path
+     * @param string $prefix Prefix
      * @return string
      */
     public static function url($path, $prefix)
@@ -1039,10 +1039,10 @@ EOF;
     }
 
     /**
-     * 获取图片
+     * Get Image
      *
      * @access public
-     * @param string $fileName 文件名
+     * @param string $fileName File Name
      * @return string
      */
     public static function mimeContentType($fileName)
@@ -1389,7 +1389,7 @@ EOF;
     }
 
     /**
-     * 寻找匹配的mime图标
+     * Looking for matched mime icons
      *
      * @access public
      * @param string $mime mime type
