@@ -7,33 +7,33 @@
    Made available under the Artistic License: http://www.opensource.org/licenses/artistic-license.php
 */
 
-/** IXR值 */
+/** IXR Value */
 require_once 'IXR/Value.php';
 
-/** IXR消息 */
+/** IXR Message */
 require_once 'IXR/Message.php';
 
-/** IXR请求体 */
+/** IXR Request */
 require_once 'IXR/Request.php';
 
-/** IXR错误 */
+/** IXR Error */
 require_once 'IXR/Error.php';
 
-/** IXR日期 */
+/** IXR Date  */
 require_once 'IXR/Date.php';
 
-/** IXR Base64编码 */
+/** IXR Base64 Code */
 require_once 'IXR/Base64.php';
 
 /**
- * IXR服务器
+ * IXR Server
  *
  * @package IXR
  */
 class IXR_Server
 {
     /**
-     * 输入参数
+     * Enter Data
      *
      * @access private
      * @var array
@@ -41,7 +41,7 @@ class IXR_Server
     private $data;
 
     /**
-     * 回调函数
+     * Callback Function
      *
      * @access private
      * @var array
@@ -49,7 +49,7 @@ class IXR_Server
     private $callbacks = array();
 
     /**
-     * 消息体
+     * Message
      *
      * @access private
      * @var IXR_Message
@@ -57,7 +57,7 @@ class IXR_Server
     private $message;
 
     /**
-     * 默认参数
+     * Default Params
      *
      * @access private
      * @var array
@@ -65,11 +65,11 @@ class IXR_Server
     private $capabilities;
 
     /**
-     * 构造函数
+     * Constructing Function
      *
      * @access public
-     * @param mixed $callbacks 回调函数
-     * @param mixed $data 输入参数
+     * @param mixed $callbacks Callback Function
+     * @param mixed $data Entering Function
      * @return void
      */
     public function __construct($callbacks = false, $data = false)
@@ -137,11 +137,11 @@ class IXR_Server
     }
 
     /**
-     * 抛出错误
+     * Outputing Error
      *
      * @access private
-     * @param integer $error 错误代码
-     * @param string $message 错误消息
+     * @param integer $error Error Code
+     * @param string $message Error Message
      * @return void
      */
     private function error($error, $message = false)
@@ -154,11 +154,11 @@ class IXR_Server
     }
 
     /**
-     * 输出xml
+     * Outputing xml
      *
      * @access private
-     * @param string $xml 输出xml
-     * @return 输出xml
+     * @param string $xml Outputing xml
+     * @return Outputing xml
      */
     private function output($xml)
     {
@@ -185,7 +185,7 @@ class IXR_Server
     }
 
     /**
-     * 设置默认参数
+     * Setting Default Capabilities
      *
      * @access public
      * @return void
@@ -288,10 +288,10 @@ EOD;
     }
 
     /**
-     * 获取默认参数
+     * Get Default Capabilities
      *
      * @access public
-     * @param mixed $args 输入参数
+     * @param mixed $args Inputing Capabilities
      * @return array
      */
     public function getCapabilities($args)
@@ -303,7 +303,7 @@ EOD;
      * 列出所有方法
      *
      * @access public
-     * @param mixed $args 输入参数
+     * @param mixed $args Inputing Capabilities
      * @return mixed
      */
     public function listMethods($args)
@@ -314,7 +314,7 @@ EOD;
     }
 
     /**
-     * 一次处理多个请求
+     * Dealing with mutil-requests
      *
      * @access public
      * @param void $methodcalls
