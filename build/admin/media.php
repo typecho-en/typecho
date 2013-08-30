@@ -21,7 +21,7 @@ Typecho_Widget::widget('Widget_Contents_Attachment_Edit')->to($attachment);
                             <?php $mime = Typecho_Common::mimeIconType($attachment->attachment->mime); ?>
                             <li><span class="typecho-mime typecho-mime-<?php echo $mime; ?>"></span><strong><?php $attachment->attachment->name(); ?></strong> <small><?php echo number_format(ceil($attachment->attachment->size / 1024)); ?> Kb</small></li>
                             <li><input id="attachment-url" type="text" readonly class="text" value="<?php $attachment->attachment->url(); ?>" />
-                            <button id="exchange" disabled><?php _e('Replace'); ?></button>
+                            <button id="exchange" disabled><?php _e('替换'); ?></button>
                             <span id="swfu"><span id="swfu-placeholder"></span></span></li>
                         </ul>
                     </div>
@@ -77,7 +77,7 @@ include 'common-js.php';
             var uploadStart = function (file) {
                 $(document)
                 .getElement('.typecho-attachment-photo-box button#exchange')
-                .set('html', '<?php _e('Uploading'); ?>')
+                .set('html', '<?php _e('上传中'); ?>')
                 .setAttribute('disabled', '');
             };
             
@@ -111,7 +111,7 @@ include 'common-js.php';
             var uploadComplete = function (file) {
                 $(document)
                 .getElement('.typecho-attachment-photo-box button#exchange')
-                .set('html', '<?php _e('Replace'); ?>')
+                .set('html', '<?php _e('替换'); ?>')
                 .removeAttribute('disabled');
             };
             

@@ -10,9 +10,9 @@
     <div class="column-24">
         <h2><?php echo $menu->title; ?><?php 
         if (!empty($menu->addLink)) {
-            echo "<a href=\"{$menu->addLink}\">" . _t("New") . "</a>";
+            echo "<a href=\"{$menu->addLink}\">" . _t("新增") . "</a>";
         }
         ?></h2>
-        <p><a href="<?php $options->siteUrl(); ?>"><?php _e('View my site'); ?></a></p>
+        <p><a href="<?php $options->siteUrl(); ?>"><?php _e('查看我的站点'); ?></a></p>
     </div>
 </div>

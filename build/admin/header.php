@@ -7,7 +7,7 @@ $header = '<link rel="stylesheet" type="text/css" href="' . Typecho_Common::url(
 <link rel="stylesheet" type="text/css" href="' . Typecho_Common::url('css/grid.source.css?v=' . $suffixVersion, $options->adminUrl) . '" /> 
 <link rel="stylesheet" type="text/css" href="' . Typecho_Common::url('css/typecho.source.css?v=' . $suffixVersion, $options->adminUrl) . '" />';
 
-/** Registers a initialize plugin */
+/** 注册一个初始化插件 */
 Typecho_Plugin::factory('admin/header.php')->header($header);
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 

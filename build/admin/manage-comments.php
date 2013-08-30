@@ -13,9 +13,9 @@ $comments = Typecho_Widget::widget('Widget_Comments_Admin');
             <div class="column-24 start-01 typecho-list">
                 <ul class="typecho-option-tabs">
                     <li<?php if(!isset($request->status) || 'approved' == $request->get('status')): ?> class="current"<?php endif; ?>><a href="<?php $options->adminUrl('manage-comments.php'
-                    . (isset($request->cid) ? '?cid=' . $request->cid : '')); ?>"><?php _e('Has passed'); ?></a></li>
+                    . (isset($request->cid) ? '?cid=' . $request->cid : '')); ?>"><?php _e('已通过'); ?></a></li>
                     <li<?php if('waiting' == $request->get('status')): ?> class="current"<?php endif; ?>><a href="<?php $options->adminUrl('manage-comments.php?status=waiting'
-                    . (isset($request->cid) ? '&cid=' . $request->cid : '')); ?>"><?php _e('Pending review'); ?>
+                    . (isset($request->cid) ? '&cid=' . $request->cid : '')); ?>"><?php _e('待审核'); ?>
                     <?php if('on' != $request->get('__typecho_all_comments') && $stat->myWaitingCommentsNum > 0 && !isset($request->cid)): ?> 
                         <span class="balloon"><?php $stat->myWaitingCommentsNum(); ?></span>
                     <?php elseif('on' == $request->get('__typecho_all_comments') && $stat->waitingCommentsNum > 0 && !isset($request->cid)): ?>
@@ -25,7 +25,7 @@ $comments = Typecho_Widget::widget('Widget_Comments_Admin');
                     <?php endif; ?>
                     </a></li>
                     <li<?php if('spam' == $request->get('status')): ?> class="current"<?php endif; ?>><a href="<?php $options->adminUrl('manage-comments.php?status=spam'
-                    . (isset($request->cid) ? '&cid=' . $request->cid : '')); ?>"><?php _e('Junk'); ?>
+                    . (isset($request->cid) ? '&cid=' . $request->cid : '')); ?>"><?php _e('垃圾'); ?>
                     <?php if('on' != $request->get('__typecho_all_comments') && $stat->mySpamCommentsNum > 0 && !isset($request->cid)): ?> 
                         <span class="balloon"><?php $stat->mySpamCommentsNum(); ?></span>
                     <?php elseif('on' == $request->get('__typecho_all_comments') && $stat->spamCommentsNum > 0 && !isset($request->cid)): ?>
@@ -35,22 +35,22 @@ $comments = Typecho_Widget::widget('Widget_Comments_Admin');
                     <?php endif; ?>
                     </a></li>
                     <?php if($user->pass('editor', true) && !isset($request->cid)): ?>
-                        <li class="right<?php if('on' == $request->get('__typecho_all_comments')): ?> current<?php endif; ?>"><a href="<?php echo $request->makeUriByRequest('__typecho_all_comments=on'); ?>"><?php _e('All'); ?></a></li>
-                        <li class="right<?php if('on' != $request->get('__typecho_all_comments')): ?> current<?php endif; ?>"><a href="<?php echo $request->makeUriByRequest('__typecho_all_comments=off'); ?>"><?php _e('My'); ?></a></li>
+                        <li class="right<?php if('on' == $request->get('__typecho_all_comments')): ?> current<?php endif; ?>"><a href="<?php echo $request->makeUriByRequest('__typecho_all_comments=on'); ?>"><?php _e('所有'); ?></a></li>
+                        <li class="right<?php if('on' != $request->get('__typecho_all_comments')): ?> current<?php endif; ?>"><a href="<?php echo $request->makeUriByRequest('__typecho_all_comments=off'); ?>"><?php _e('我的'); ?></a></li>
                     <?php endif; ?>
                 </ul>
             
                 <div class="typecho-list-operate">
                 <form method="get">
-                    <p class="operate"><?php _e('Operation'); ?>: 
-                    <span class="operate-button typecho-table-select-all"><?php _e('Select all'); ?></span>, 
-                    <span class="operate-button typecho-table-select-none"><?php _e('Do not select all'); ?></span>&nbsp;&nbsp;&nbsp;
-                    <?php _e('Checked items') ?>:
-                    <span rel="approved" class="operate-button typecho-table-select-submit"><?php _e('Pass'); ?></span>, 
-                    <span rel="waiting" class="operate-button typecho-table-select-submit"><?php _e('Pending review'); ?></span>, 
-                    <span rel="spam" class="operate-button typecho-table-select-submit"><?php _e('Tag spam'); ?></span>, 
-                    <span rel="delete" lang="<?php _e('Are you sure you want to delete these comments?'); ?>" class="operate-button operate-delete typecho-table-select-submit"><?php _e('Delete'); ?></span><?php if('spam' == $request->get('status')): ?>, 
-                    <span rel="delete-spam" lang="<?php _e('Are you sure you want to delete all spam comments?'); ?>" class="operate-button operate-delete typecho-table-select-submit"><?php _e('Delete all spam comments'); ?></span>
+                    <p class="operate"><?php _e('操作'); ?>: 
+                    <span class="operate-button typecho-table-select-all"><?php _e('全选'); ?></span>, 
+                    <span class="operate-button typecho-table-select-none"><?php _e('不选'); ?></span>&nbsp;&nbsp;&nbsp;
+                    <?php _e('选中项') ?>:
+                    <span rel="approved" class="operate-button typecho-table-select-submit"><?php _e('通过'); ?></span>, 
+                    <span rel="waiting" class="operate-button typecho-table-select-submit"><?php _e('待审核'); ?></span>, 
+                    <span rel="spam" class="operate-button typecho-table-select-submit"><?php _e('标记垃圾'); ?></span>, 
+                    <span rel="delete" lang="<?php _e('你确认要删除这些评论吗?'); ?>" class="operate-button operate-delete typecho-table-select-submit"><?php _e('删除'); ?></span><?php if('spam' == $request->get('status')): ?>, 
+                    <span rel="delete-spam" lang="<?php _e('你确认要删除所有垃圾评论吗?'); ?>" class="operate-button operate-delete typecho-table-select-submit"><?php _e('删除所有垃圾评论'); ?></span>
                     <?php endif; ?>
                     </p>
                     <p class="search">
@@ -58,16 +58,16 @@ $comments = Typecho_Widget::widget('Widget_Comments_Admin');
                     <a href="<?php $options->adminUrl('manage-comments.php' 
                     . (isset($request->status) || isset($request->cid) ? '?' .
                     (isset($request->status) ? 'status=' . htmlspecialchars($request->get('status')) : '') .
-                    (isset($request->cid) ? (isset($request->status) ? '&' : '') . 'cid=' . htmlspecialchars($request->get('cid')) : '') : '')); ?>"><?php _e('&laquo; Remove filter'); ?></a>
+                    (isset($request->cid) ? (isset($request->status) ? '&' : '') . 'cid=' . htmlspecialchars($request->get('cid')) : '') : '')); ?>"><?php _e('&laquo; 取消筛选'); ?></a>
                     <?php endif; ?>
-                    <input type="text" value="<?php '' != $request->keywords ? print(htmlspecialchars($request->keywords)) : _e('Please enter a keyword'); ?>"<?php if ('' == $request->keywords): ?> onclick="value='';name='keywords';" <?php else: ?> name="keywords"<?php endif; ?>/>
+                    <input type="text" value="<?php '' != $request->keywords ? print(htmlspecialchars($request->keywords)) : _e('请输入关键字'); ?>"<?php if ('' == $request->keywords): ?> onclick="value='';name='keywords';" <?php else: ?> name="keywords"<?php endif; ?>/>
                     <?php if(isset($request->status)): ?>
                         <input type="hidden" value="<?php echo htmlspecialchars($request->get('status')); ?>" name="status" />
                     <?php endif; ?>
                     <?php if(isset($request->cid)): ?>
                         <input type="hidden" value="<?php echo htmlspecialchars($request->get('cid')); ?>" name="cid" />
                     <?php endif; ?>
-                    <button type="submit"><?php _e('Filter'); ?></button>
+                    <button type="submit"><?php _e('筛选'); ?></button>
                     </p>
                 </form>
                 </div>
@@ -107,30 +107,30 @@ $comments = Typecho_Widget::widget('Widget_Comments_Admin');
                             <div class="line">
                                 <div class="left hidden-by-mouse">
                                     <?php if('approved' == $comments->status): ?>
-                                    <span class="weak"><?php _e('Pass'); ?></span>
+                                    <span class="weak"><?php _e('通过'); ?></span>
                                     <?php else: ?>
-                                    <a href="<?php $options->index('/action/comments-edit?do=approved&coid=' . $comments->coid); ?>" class="ajax"><?php _e('Pass'); ?></a>
+                                    <a href="<?php $options->index('/action/comments-edit?do=approved&coid=' . $comments->coid); ?>" class="ajax"><?php _e('通过'); ?></a>
                                     <?php endif; ?>
                                      | 
                                     <?php if('waiting' == $comments->status): ?>
-                                    <span class="weak"><?php _e('Pending review'); ?></span>
+                                    <span class="weak"><?php _e('待审核'); ?></span>
                                     <?php else: ?>
-                                    <a href="<?php $options->index('/action/comments-edit?do=waiting&coid=' . $comments->coid); ?>" class="ajax"><?php _e('Pending review'); ?></a>
+                                    <a href="<?php $options->index('/action/comments-edit?do=waiting&coid=' . $comments->coid); ?>" class="ajax"><?php _e('待审核'); ?></a>
                                     <?php endif; ?>
                                      | 
                                     <?php if('spam' == $comments->status): ?>
-                                    <span class="weak"><?php _e('Junk'); ?></span>
+                                    <span class="weak"><?php _e('垃圾'); ?></span>
                                     <?php else: ?>
-                                    <a href="<?php $options->index('/action/comments-edit?do=spam&coid=' . $comments->coid); ?>" class="ajax"><?php _e('Junk'); ?></a>
+                                    <a href="<?php $options->index('/action/comments-edit?do=spam&coid=' . $comments->coid); ?>" class="ajax"><?php _e('垃圾'); ?></a>
                                     <?php endif; ?>
                                      | 
-                                    <a href="#<?php $comments->theId(); ?>" rel="<?php $options->index('/action/comments-edit?do=get&coid=' . $comments->coid); ?>" class="ajax operate-edit"><?php _e('Edit'); ?></a>
+                                    <a href="#<?php $comments->theId(); ?>" rel="<?php $options->index('/action/comments-edit?do=get&coid=' . $comments->coid); ?>" class="ajax operate-edit"><?php _e('编辑'); ?></a>
                                     <?php if('approved' == $comments->status && 'comment' == $comments->type): ?>
                                      | 
-                                    <a href="#<?php $comments->theId(); ?>" rel="<?php $options->index('/action/comments-edit?do=reply&coid=' . $comments->coid); ?>" class="ajax operate-reply"><?php _e('Reply'); ?></a>
+                                    <a href="#<?php $comments->theId(); ?>" rel="<?php $options->index('/action/comments-edit?do=reply&coid=' . $comments->coid); ?>" class="ajax operate-reply"><?php _e('回复'); ?></a>
                                     <?php endif; ?>
                                      | 
-                                    <a lang="<?php _e('Are you sure you want to delete the%s comments?', htmlspecialchars($comments->author)); ?>" href="<?php $options->index('/action/comments-edit?do=delete&coid=' . $comments->coid); ?>" class="ajax operate-delete"><?php _e('Delete'); ?></a>
+                                    <a lang="<?php _e('你确认要删除%s的评论吗?', htmlspecialchars($comments->author)); ?>" href="<?php $options->index('/action/comments-edit?do=delete&coid=' . $comments->coid); ?>" class="ajax operate-delete"><?php _e('删除'); ?></a>
                                 </div>
                                 <div class="right">
                                     <?php $comments->dateWord(); ?>
@@ -143,7 +143,7 @@ $comments = Typecho_Widget::widget('Widget_Comments_Admin');
                     <?php endwhile; ?>
                     <?php else: ?>
                     <li class="even">
-                        <h6 class="typecho-list-table-title"><?php _e('No comments') ?></h6>
+                        <h6 class="typecho-list-table-title"><?php _e('没有评论') ?></h6>
                     </li>
                     <?php endif; ?>
                     </ul>
@@ -210,14 +210,14 @@ include 'common-js.php';
                                     var form = new Element('div', {
                                         'class': 'comment-form',
                                     
-                                        'html': '<label for="author-' + coid + '"><?php _e('Name'); ?></label>' +
+                                        'html': '<label for="author-' + coid + '"><?php _e('名称'); ?></label>' +
                                         '<input type="text" class="text" name="author" id="author-' + coid + '" />' +
-                                        '<label for="mail"><?php _e('E-mail'); ?></label>' +
+                                        '<label for="mail"><?php _e('电子邮件'); ?></label>' +
                                         '<input type="text" class="text" name="mail" id="mail-' + coid + '" />' +
-                                        '<label for="url"><?php _e('Personal home page'); ?></label>' +
+                                        '<label for="url"><?php _e('个人主页'); ?></label>' +
                                         '<input type="text" class="text" name="url" id="url-' + coid + '" />' +
                                         '<textarea name="text" id="text-' + coid + '"></textarea>' +
-                                        '<p><button id="submit-' + coid + '"><?php _e('Save comments'); ?></button>' +
+                                        '<p><button id="submit-' + coid + '"><?php _e('保存评论'); ?></button>' +
                                         '<input type="hidden" name="coid" id="coid-' + coid + '" /></p>'
                                     
                                     });
@@ -322,7 +322,7 @@ include 'common-js.php';
                             'class': 'reply-form',
                         
                             'html': '<textarea name="text"></textarea>' +
-                            '<p><button id="reply-' + coid + '"><?php _e('Reply to comment'); ?></button></p>'
+                            '<p><button id="reply-' + coid + '"><?php _e('回复评论'); ?></button></p>'
                         
                         });
                         
@@ -338,7 +338,7 @@ include 'common-js.php';
                         
                         form.getElement('#reply-' + coid).addEvent('click', (function () {
                             if ('' == this.getParent('li').getElement('.reply-form textarea[name=text]').get('value')) {
-                                alert('<?php _e('You must fill in the content'); ?>');
+                                alert('<?php _e('必须填写内容'); ?>');
                                 return false;
                             }
                         
@@ -365,7 +365,7 @@ include 'common-js.php';
                                         
                                         });
                                         
-                                        li.getElement('.operate-reply').set('html', '<?php _e('Cancel reply'); ?>');
+                                        li.getElement('.operate-reply').set('html', '<?php _e('取消回复'); ?>');
                                         li.getElement('.operate-reply').replied = true;
                                         li.getElement('.operate-reply').child = json.comment.coid;
                                         msg.inject(li.getElement('.line'), 'after');
@@ -392,7 +392,7 @@ include 'common-js.php';
                                 if (json.success) {
                                     var li = this.getParent('li');
                                     
-                                    li.getElement('.operate-reply').set('html', '<?php _e('Reply'); ?>');
+                                    li.getElement('.operate-reply').set('html', '<?php _e('回复'); ?>');
                                     li.getElement('.operate-reply').replied = false;
                                     li.getElement('.operate-reply').set('child', 0);
                                     li.getElement('.reply-message').destroy();

@@ -71,7 +71,7 @@ if (isset($post) || isset($page)) {
 
 <div class="typecho-list-operate">
 <p class="operate">
-    <a class="button"><?php _e('Loading upload component'); ?></a>
+    <a class="button"><?php _e('正在加载上传组件'); ?></a>
     <span id="swfu"><span id="swfu-placeholder"></span></span>
 </p>
 </div>
@@ -88,9 +88,9 @@ if (isset($post) || isset($page)) {
                         echo "insertImageToEditor('{$attachment->title}', '{$attachment->attachment->url}', '{$attachment->permalink}', {$attachment->cid});";
                     } else {
                         echo "insertLinkToEditor('{$attachment->title}', '{$attachment->attachment->url}', '{$attachment->permalink}', {$attachment->cid});";
-                    } ?>"><?php _e('Insert'); ?></span>
+                    } ?>"><?php _e('插入'); ?></span>
             ,
-            <span class="delete" onclick="deleteAttachment(<?php $attachment->cid(); ?>, this);"><?php _e('Delete'); ?></span>
+            <span class="delete" onclick="deleteAttachment(<?php $attachment->cid(); ?>, this);"><?php _e('删除'); ?></span>
         </small>
     </li>
 <?php endwhile; ?>

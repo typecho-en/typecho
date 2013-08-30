@@ -3,16 +3,16 @@ if (!defined('__DIR__')) {
     define('__DIR__', dirname(__FILE__));
 }
 
-/** Load the configuration file */
+/** 载入配置文件 */
 if (!@include_once __DIR__ . '/../config.inc.php') {
     file_exists(__DIR__ . '/../install.php') ? header('Location: ../install.php') : print('Missing Config File');
     exit;
 }
 
-/** Initializing components */
+/** 初始化组件 */
 Typecho_Widget::widget('Widget_Init');
 
-/** Registers a Initializes plug-in */
+/** 注册一个初始化插件 */
 Typecho_Plugin::factory('admin/common.php')->begin();
 
 Typecho_Widget::widget('Widget_Options')->to($options);
@@ -20,11 +20,11 @@ Typecho_Widget::widget('Widget_User')->to($user);
 Typecho_Widget::widget('Widget_Notice')->to($notice);
 Typecho_Widget::widget('Widget_Menu')->to($menu);
 
-/** Initialize the context */
+/** 初始化上下文 */
 $request = $options->request;
 $response = $options->response;
 
-/** Test whether this is the first time you log on */
+/** 检测是否是第一次登录 */
 $currentMenu = $menu->getCurrentMenu();
 list($prefixVersion, $suffixVersion) = explode('/', $options->version);
 $params = parse_url($currentMenu[2]);
@@ -40,7 +40,7 @@ if (!$user->logged && !Typecho_Cookie::get('__typecho_first_run') && !empty($cur
     
 } else {
 
-    /** Detect whether version upgrade */
+    /** 检测版本是否升级 */
     if ($user->pass('administrator', true) && !empty($currentMenu)) {
         $mustUpgrade = (!defined('Typecho_Common::VERSION') || version_compare(str_replace('/', '.', Typecho_Common::VERSION),
         str_replace('/', '.', $options->version), '>'));

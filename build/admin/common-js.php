@@ -7,7 +7,7 @@
             var _d = $(document);
             var handle = new Typecho.guid('typecho:guid', {offset: 1, type: 'mouse'});
             
-            //Additional highlights
+            //增加高亮效果
             (function () {
                 var _hlId = '<?php echo $notice->highlight; ?>';
                 
@@ -27,7 +27,7 @@
                 }
             })();
 
-            //Increase the fade effect
+            //增加淡出效果
             (function () {
                 var _msg = _d.getElement('.popup');
             
@@ -49,7 +49,7 @@
                 }
             })();
             
-            //Increase the scrolling effect, scroll to the top of one error
+            //增加滚动效果,滚动到上面的一条error
             (function () {
                 var _firstError = _d.getElement('.typecho-option .error');
     
@@ -58,7 +58,7 @@
                 }
             })();
 
-            //Disable duplicate submissions
+            //禁用重复提交
             (function () {
                 _d.getElements('input[type=submit]').removeProperty('disabled');
                 _d.getElements('button[type=submit]').removeProperty('disabled');
@@ -76,14 +76,14 @@
                 _d.getElements('button[type=submit]').addEvent('click', _disable);
             })();
 
-            //Open link
+            //打开链接
             (function () {
                 
                 _d.getElements('a').each(function (item) {
                     var _href = item.href;
                     
                     if (_href && 0 != _href.indexOf('#')) {
-                        //Confirmation box
+                        //确认框
                         item.addEvent('click', function (event) {
                             var _lang = this.get('lang');
                             var _c = _lang ? confirm(_lang) : true;
@@ -93,7 +93,7 @@
                             }
                         });
         
-                        /** If the match continues */
+                        /** 如果匹配则继续 */
                         if (/^<?php echo preg_quote($options->adminUrl, '/'); ?>.*$/.exec(_href) 
                             || /^<?php echo substr(preg_quote(Typecho_Common::url('s', $options->index), '/'), 0, -1); ?>action\/[_a-zA-Z0-9\/]+.*$/.exec(_href)) {
                             return;

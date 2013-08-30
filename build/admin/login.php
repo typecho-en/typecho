@@ -19,17 +19,17 @@ Typecho_Cookie::delete('__typecho_remember_name');
                     </ul>
                     </div>
                     <?php endif; ?>
-                    <p><label for="name"><?php _e('User name'); ?>:</label> <input type="text" id="name" name="name" value="<?php echo $rememberName; ?>" class="text" /></p>
-                    <p><label for="password"><?php _e('Password'); ?>:</label> <input type="password" id="password" name="password" class="text" /></p>
+                    <p><label for="name"><?php _e('用户名'); ?>:</label> <input type="text" id="name" name="name" value="<?php echo $rememberName; ?>" class="text" /></p>
+                    <p><label for="password"><?php _e('密码'); ?>:</label> <input type="password" id="password" name="password" class="text" /></p>
                     <p class="submit">
-                    <label for="remember"><input type="checkbox" name="remember" class="checkbox" value="1" id="remember" /> <?php _e('Remember me'); ?></label>
-                    <button type="submit"><?php _e('Login'); ?></button>
+                    <label for="remember"><input type="checkbox" name="remember" class="checkbox" value="1" id="remember" /> <?php _e('记住我'); ?></label>
+                    <button type="submit"><?php _e('登录'); ?></button>
                     <input type="hidden" name="referer" value="<?php echo htmlspecialchars($request->get('referer')); ?>" />
                     </p>
                     <?php else: ?>
                     <div class="message notice typecho-radius-topleft typecho-radius-topright typecho-radius-bottomleft typecho-radius-bottomright">
                         <ul>
-                            <li><?php _e('You are already logged on to%s', $options->title); ?></li>
+                            <li><?php _e('您已经登录到%s', $options->title); ?></li>
                         </ul>
                     </div>
                     <?php endif; ?>
@@ -38,13 +38,13 @@ Typecho_Cookie::delete('__typecho_remember_name');
             
             <div class="more-link">
                 <p class="back-to-site">
-                <a href="<?php $options->siteUrl(); ?>" class="important"><?php _e('&laquo; Return%s', $options->title); ?></a>
+                <a href="<?php $options->siteUrl(); ?>" class="important"><?php _e('&laquo; 返回%s', $options->title); ?></a>
                 </p>
                 <p class="forgot-password">
                 <?php if($user->hasLogin()): ?>
-                <a href="<?php $options->adminUrl(); ?>"><?php _e('Back office management &raquo;'); ?></a>
+                <a href="<?php $options->adminUrl(); ?>"><?php _e('进入后台 &raquo;'); ?></a>
                 <?php elseif($options->allowRegister): ?>
-                <a href="<?php $options->registerUrl(); ?>"><?php _e('Registration &raquo;'); ?></a>
+                <a href="<?php $options->registerUrl(); ?>"><?php _e('注册 &raquo;'); ?></a>
                 <?php endif; ?>
                 </p>
             </div>

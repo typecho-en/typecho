@@ -10,21 +10,21 @@ include 'menu.php';
         <div class="container typecho-page-main manage-metas">
                 <div class="column-16 suffix">
                     <ul class="typecho-option-tabs">
-                        <li<?php if(!isset($request->type) || 'category' == $request->get('type')): ?> class="current"<?php endif; ?>><a href="<?php $options->adminUrl('manage-metas.php'); ?>"><?php _e(' Categories'); ?></a></li>
-                        <li<?php if('tag' == $request->get('type')): ?> class="current"<?php endif; ?>><a href="<?php $options->adminUrl('manage-metas.php?type=tag'); ?>"><?php _e('Tag'); ?></a></li>
+                        <li<?php if(!isset($request->type) || 'category' == $request->get('type')): ?> class="current"<?php endif; ?>><a href="<?php $options->adminUrl('manage-metas.php'); ?>"><?php _e('分类'); ?></a></li>
+                        <li<?php if('tag' == $request->get('type')): ?> class="current"<?php endif; ?>><a href="<?php $options->adminUrl('manage-metas.php?type=tag'); ?>"><?php _e('标签'); ?></a></li>
                     </ul>
                     
                     <?php if(!isset($request->type) || 'category' == $request->get('type')): ?>
                     <?php Typecho_Widget::widget('Widget_Metas_Category_List')->to($categories); ?>
                     <form method="post" name="manage_categories" class="operate-form" action="<?php $options->index('/action/metas-category-edit'); ?>">
                     <div class="typecho-list-operate">
-                        <p class="operate"><?php _e('Operation'); ?>: 
-                            <span class="operate-button typecho-table-select-all"><?php _e('Select all'); ?></span>, 
-                            <span class="operate-button typecho-table-select-none"><?php _e('Do not select all'); ?></span>&nbsp;&nbsp;&nbsp;
-                            <?php _e('Checked items'); ?>: 
-                            <span rel="delete" lang="<?php _e('All content in this category will be deleted, are you sure you want to delete these categories?'); ?>" class="operate-button operate-delete typecho-table-select-submit"><?php _e('Delete'); ?></span>, 
-                            <span rel="refresh" lang="<?php _e('Refresh the category may need to wait for a long time, are you sure you want to refresh the category?'); ?>" class="operate-button typecho-table-select-submit"><?php _e('Refresh'); ?></span>, 
-                            <span rel="merge" class="operate-button typecho-table-select-submit"><?php _e('Merge into'); ?></span>
+                        <p class="operate"><?php _e('操作'); ?>: 
+                            <span class="operate-button typecho-table-select-all"><?php _e('全选'); ?></span>, 
+                            <span class="operate-button typecho-table-select-none"><?php _e('不选'); ?></span>&nbsp;&nbsp;&nbsp;
+                            <?php _e('选中项'); ?>: 
+                            <span rel="delete" lang="<?php _e('此分类下的所有内容将被删除, 你确认要删除这些分类吗?'); ?>" class="operate-button operate-delete typecho-table-select-submit"><?php _e('删除'); ?></span>, 
+                            <span rel="refresh" lang="<?php _e('刷新分类可能需要等待较长时间, 你确认要刷新这些分类吗?'); ?>" class="operate-button typecho-table-select-submit"><?php _e('刷新'); ?></span>, 
+                            <span rel="merge" class="operate-button typecho-table-select-submit"><?php _e('合并到'); ?></span>
                             <select name="merge">
                                 <?php $categories->parse('<option value="{mid}">{name}</option>'); ?>
                             </select>
@@ -43,11 +43,11 @@ include 'menu.php';
                         <thead>
                             <tr>
                                 <th class="typecho-radius-topleft"> </th>
-                                <th><?php _e('Name'); ?></th>
+                                <th><?php _e('名称'); ?></th>
                                 <th> </th>
-                                <th><?php _e('Abbreviated name'); ?></th>
+                                <th><?php _e('缩略名'); ?></th>
                                 <th> </th>
-                                <th class="typecho-radius-topright"><?php _e('Number of articles'); ?></th>
+                                <th class="typecho-radius-topright"><?php _e('文章数'); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,7 +62,7 @@ include 'menu.php';
                                 <td><?php $categories->slug(); ?></td>
                                 <td>
                                 <?php if ($options->defaultCategory == $categories->mid): ?>
-                                <span class="balloon right"><?php _e('default'); ?></span>
+                                <span class="balloon right"><?php _e('默认'); ?></span>
                                 <?php else: ?>
                                 <a class="balloon-button right hidden-by-mouse" href="<?php $options->index('/action/metas-category-edit?do=default&mid=' . $categories->mid); ?>"><?php _e('默认'); ?></a>
                                 <?php endif; ?>
@@ -72,7 +72,7 @@ include 'menu.php';
                             <?php endwhile; ?>
                             <?php else: ?>
                             <tr class="even">
-                                <td colspan="6"><h6 class="typecho-list-table-title"><?php _e('There are no categories'); ?></h6></td>
+                                <td colspan="6"><h6 class="typecho-list-table-title"><?php _e('没有任何分类'); ?></h6></td>
                             </tr>
                             <?php endif; ?>
                         </tbody>
@@ -83,13 +83,13 @@ include 'menu.php';
                     <?php Typecho_Widget::widget('Widget_Metas_Tag_Cloud', 'sort=mid&desc=0')->to($tags); ?>
                     <form method="post" name="manage_tags" class="operate-form" action="<?php $options->index('/action/metas-tag-edit'); ?>">
                     <div class="typecho-list-operate">
-                        <p class="operate"><?php _e('Operation'); ?>: 
-                            <span class="operate-button typecho-table-select-all"><?php _e('Select all'); ?></span>, 
-                            <span class="operate-button typecho-table-select-none"><?php _e('Do not select all'); ?></span>&nbsp;&nbsp;&nbsp;
-                            <?php _e('Checked items'); ?>: 
-                            <span rel="delete" lang="<?php _e('Everything below this tag is deleted, are you sure you want to delete the label?'); ?>" class="operate-button operate-delete typecho-table-select-submit"><?php _e('Delete'); ?></span>, 
-                            <span rel="refresh" lang="<?php _e('Refresh the label may have to wait a long time, are you sure you want to refresh those categories?'); ?>" class="operate-button typecho-table-select-submit"><?php _e('Refresh'); ?></span>, 
-                            <span rel="merge" class="operate-button typecho-table-select-submit"><?php _e('Merge into'); ?></span> 
+                        <p class="operate"><?php _e('操作'); ?>: 
+                            <span class="operate-button typecho-table-select-all"><?php _e('全选'); ?></span>, 
+                            <span class="operate-button typecho-table-select-none"><?php _e('不选'); ?></span>&nbsp;&nbsp;&nbsp;
+                            <?php _e('选中项'); ?>: 
+                            <span rel="delete" lang="<?php _e('此标签下的所有内容将被删除, 你确认要删除这些标签吗?'); ?>" class="operate-button operate-delete typecho-table-select-submit"><?php _e('删除'); ?></span>, 
+                            <span rel="refresh" lang="<?php _e('刷新标签可能需要等待较长时间, 你确认要刷新这些分类吗?'); ?>" class="operate-button typecho-table-select-submit"><?php _e('刷新'); ?></span>, 
+                            <span rel="merge" class="operate-button typecho-table-select-submit"><?php _e('合并到'); ?></span> 
                             <input type="text" name="merge" />
                         </p>
                     </div>
@@ -103,7 +103,7 @@ include 'menu.php';
                         </li>
                         <?php endwhile; ?>
                         <?php else: ?>
-                        <h6 class="typecho-list-table-title"><?php _e('No tag'); ?></h6>
+                        <h6 class="typecho-list-table-title"><?php _e('没有任何标签'); ?></h6>
                         <?php endif; ?>
                     </ul>
                     <input type="hidden" name="do" value="delete" />

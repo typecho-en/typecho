@@ -19,15 +19,15 @@
                 item.removeProperty('disabled');
             });
         
-            /** Binding button */
+            /** 绑定按钮 */
             $(document).getElement('span.advance').addEvent('click', function () {
                 Typecho.toggle('#advance-panel', this,
-                '<?php _e('Hide advanced options'); ?>', '<?php _e('Expand the advanced options'); ?>');
+                '<?php _e('收起高级选项'); ?>', '<?php _e('展开高级选项'); ?>');
             });
             
             $(document).getElement('span.attach').addEvent('click', function () {
                 Typecho.toggle('#upload-panel', this,
-                '<?php _e('Collection accessories'); ?>', '<?php _e('Expand Accessories'); ?>');
+                '<?php _e('收起附件'); ?>', '<?php _e('展开附件'); ?>');
             });
             
             $('btn-save').removeProperty('disabled');

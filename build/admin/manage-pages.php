@@ -12,18 +12,18 @@ $stat = Typecho_Widget::widget('Widget_Stat');
             <div class="column-24 start-01 typecho-list">
                 <div class="typecho-list-operate">
                 <form method="get">
-                    <p class="operate"><?php _e('Operation'); ?>: 
-                        <span class="operate-button typecho-table-select-all"><?php _e('Select all'); ?></span>, 
-                        <span class="operate-button typecho-table-select-none"><?php _e('Do not select all'); ?></span>&nbsp;&nbsp;&nbsp;
-                        <?php _e('Checked items'); ?>: 
-                        <span rel="delete" lang="<?php _e('Are you sure you want to delete the page?'); ?>" class="operate-button operate-delete typecho-table-select-submit"><?php _e('Delete'); ?></span>
+                    <p class="operate"><?php _e('操作'); ?>: 
+                        <span class="operate-button typecho-table-select-all"><?php _e('全选'); ?></span>, 
+                        <span class="operate-button typecho-table-select-none"><?php _e('不选'); ?></span>&nbsp;&nbsp;&nbsp;
+                        <?php _e('选中项'); ?>: 
+                        <span rel="delete" lang="<?php _e('你确认要删除这些页面吗?'); ?>" class="operate-button operate-delete typecho-table-select-submit"><?php _e('删除'); ?></span>
                     </p>
                     <p class="search">
                     <?php if ('' != $request->keywords): ?>
-                    <a href="<?php $options->adminUrl('manage-pages.php'); ?>"><?php _e('&laquo; Remove filter'); ?></a>
+                    <a href="<?php $options->adminUrl('manage-pages.php'); ?>"><?php _e('&laquo; 取消筛选'); ?></a>
                     <?php endif; ?>
-                    <input type="text" value="<?php '' != $request->keywords ? print(htmlspecialchars($request->keywords)) : _e('Please enter a keyword'); ?>"<?php if ('' == $request->keywords): ?> onclick="value='';name='keywords';" <?php else: ?> name="keywords"<?php endif; ?>/>
-                    <button type="submit"><?php _e('Filter'); ?></button>
+                    <input type="text" value="<?php '' != $request->keywords ? print(htmlspecialchars($request->keywords)) : _e('请输入关键字'); ?>"<?php if ('' == $request->keywords): ?> onclick="value='';name='keywords';" <?php else: ?> name="keywords"<?php endif; ?>/>
+                    <button type="submit"><?php _e('筛选'); ?></button>
                     </p>
                 </form>
                 </div>
@@ -44,12 +44,12 @@ $stat = Typecho_Widget::widget('Widget_Stat');
                         <tr>
                             <th class="typecho-radius-topleft"> </th>
                             <th> </th>
-                            <th><?php _e('Title'); ?></th>
+                            <th><?php _e('标题'); ?></th>
                             <th> </th>
                             <th> </th>
-                            <th><?php _e('Abbreviated name'); ?></th>
-                            <th><?php _e('Author'); ?></th>
-                            <th class="typecho-radius-topright"><?php _e('Date'); ?></th>
+                            <th><?php _e('缩略名'); ?></th>
+                            <th><?php _e('作者'); ?></th>
+                            <th class="typecho-radius-topright"><?php _e('日期'); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,12 +63,12 @@ $stat = Typecho_Widget::widget('Widget_Stat');
                             <?php if ('draft' == $pages->status): ?>
                             </td>
                             <td>
-                            <span class="balloon right"><?php _e('Draft'); ?></span>
+                            <span class="balloon right"><?php _e('草稿'); ?></span>
                             <?php endif; ?></td>
                             </td>
                             <td>
                             <?php if ('publish' == $pages->status): ?>
-                            <a class="right hidden-by-mouse" href="<?php $pages->permalink(); ?>"><img src="<?php $options->adminUrl('images/view.gif'); ?>" title="<?php _e('Browse %s', $pages->title); ?>" width="16" height="16" alt="view" /></a>
+                            <a class="right hidden-by-mouse" href="<?php $pages->permalink(); ?>"><img src="<?php $options->adminUrl('images/view.gif'); ?>" title="<?php _e('浏览 %s', $pages->title); ?>" width="16" height="16" alt="view" /></a>
                             <?php endif; ?>
                             </td>
                             <td><?php $pages->slug(); ?></td>
@@ -77,7 +77,7 @@ $stat = Typecho_Widget::widget('Widget_Stat');
                             <?php if ($pages->hasSaved): ?>
                             <span class="description">
                             <?php $modifyDate = new Typecho_Date($pages->modified); ?>
-                            <?php _e('Save in %s', $modifyDate->word()); ?>
+                            <?php _e('保存于 %s', $modifyDate->word()); ?>
                             </span>
                             <?php else: ?>
                             <?php $pages->dateWord(); ?>
@@ -87,7 +87,7 @@ $stat = Typecho_Widget::widget('Widget_Stat');
                         <?php endwhile; ?>
                         <?php else: ?>
                         <tr class="even">
-                        	<td colspan="8"><h6 class="typecho-list-table-title"><?php _e('There is no page'); ?></h6></td>
+                        	<td colspan="8"><h6 class="typecho-list-table-title"><?php _e('没有任何页面'); ?></h6></td>
                         </tr>
                         <?php endif; ?>
                     </tbody>

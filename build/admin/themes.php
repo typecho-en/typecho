@@ -10,10 +10,10 @@ include 'menu.php';
         <div class="container typecho-page-main">
             <div class="column-24">
                 <ul class="typecho-option-tabs">
-                    <li class="current"><a href="<?php $options->adminUrl('themes.php'); ?>"><?php _e('Can use the theme'); ?></a></li>
-                    <li><a href="<?php $options->adminUrl('theme-editor.php'); ?>"><?php _e('Edit current theme'); ?></a></li>
+                    <li class="current"><a href="<?php $options->adminUrl('themes.php'); ?>"><?php _e('可以使用的外观'); ?></a></li>
+                    <li><a href="<?php $options->adminUrl('theme-editor.php'); ?>"><?php _e('编辑当前外观'); ?></a></li>
                     <?php if (Widget_Themes_Config::isExists()): ?>
-                    <li><a href="<?php $options->adminUrl('options-theme.php'); ?>"><?php _e('Theme settings'); ?></a></li>
+                    <li><a href="<?php $options->adminUrl('options-theme.php'); ?>"><?php _e('设置外观'); ?></a></li>
                     <?php endif; ?>
                 </ul>
                 
@@ -34,14 +34,14 @@ include 'menu.php';
                         </div>
                         <div class="column-08">
                         <h4><?php '' != $themes->title ? $themes->title() : $themes->name(); ?></h4>
-                        <cite><?php if($themes->author): ?><?php _e('Author'); ?>: <?php if($themes->homepage): ?><a href="<?php $themes->homepage() ?>"><?php endif; ?><?php $themes->author(); ?><?php if($themes->homepage): ?></a><?php endif; ?>&nbsp;&nbsp;&nbsp;<?php endif; ?>
-                        <?php if($themes->version): ?><?php _e('Version'); ?>: <?php $themes->version() ?><?php endif; ?>
+                        <cite><?php if($themes->author): ?><?php _e('作者'); ?>: <?php if($themes->homepage): ?><a href="<?php $themes->homepage() ?>"><?php endif; ?><?php $themes->author(); ?><?php if($themes->homepage): ?></a><?php endif; ?>&nbsp;&nbsp;&nbsp;<?php endif; ?>
+                        <?php if($themes->version): ?><?php _e('版本'); ?>: <?php $themes->version() ?><?php endif; ?>
                         </cite>
                         <p><?php echo nl2br($themes->description); ?></p>
                         </div>
                         <?php if($options->theme != $themes->name): ?>
-                            <a class="edit" href="<?php $options->adminUrl('theme-editor.php?theme=' . $themes->name); ?>"><?php _e('Edit'); ?></a>
-                            <a class="activate" href="<?php $options->index('/action/themes-edit?change=' . $themes->name); ?>"><?php _e('Activation'); ?></a>
+                            <a class="edit" href="<?php $options->adminUrl('theme-editor.php?theme=' . $themes->name); ?>"><?php _e('编辑'); ?></a>
+                            <a class="activate" href="<?php $options->index('/action/themes-edit?change=' . $themes->name); ?>"><?php _e('激活'); ?></a>
                         <?php endif; ?>
                     </td>
                     <?php $last = $themes->sequence; ?>

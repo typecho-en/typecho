@@ -5,11 +5,11 @@
         resizeAble: true,
         autoSave: <?php echo ($options->autoSave ? 'true' : 'false'); ?>,
         autoSaveMessageElement: 'auto-save-message',
-        autoSaveLeaveMessage: '<?php _e('Your content has not yet been saved, navigate away from this page?'); ?>',
+        autoSaveLeaveMessage: '<?php _e('您的内容尚未保存, 是否离开此页面?'); ?>',
         resizeUrl: '<?php $options->index('/action/ajax'); ?>'
     });
 
-    /** Both of these functions in the plug-in must implement */
+    /** 这两个函数在插件中必须实现 */
     var insertImageToEditor = function (title, url, link, cid) {
         textEditor.setContent('<a href="' + link + '" title="' + title + '"><img src="' + url + '" alt="' + title + '" /></a>', '');
         new Fx.Scroll(window).toElement($(document).getElement('textarea#text'));

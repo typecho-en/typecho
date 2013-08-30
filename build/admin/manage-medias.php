@@ -15,18 +15,18 @@ $stat = Typecho_Widget::widget('Widget_Stat');
                 
                 <div class="typecho-list-operate">
                 <form method="get">
-                    <p class="operate"><?php _e('Operation'); ?>: 
-                        <span class="operate-button typecho-table-select-all"><?php _e('Select all'); ?></span>, 
-                        <span class="operate-button typecho-table-select-none"><?php _e('Do not select all'); ?></span>&nbsp;&nbsp;&nbsp;
-                        <?php _e('Checked items'); ?>: 
-                        <span rel="delete" lang="<?php _e('Are you sure you want to delete these attachments?'); ?>" class="operate-button operate-delete typecho-table-select-submit"><?php _e('Delete'); ?></span>
+                    <p class="operate"><?php _e('操作'); ?>: 
+                        <span class="operate-button typecho-table-select-all"><?php _e('全选'); ?></span>, 
+                        <span class="operate-button typecho-table-select-none"><?php _e('不选'); ?></span>&nbsp;&nbsp;&nbsp;
+                        <?php _e('选中项'); ?>: 
+                        <span rel="delete" lang="<?php _e('你确认要删除这些附件吗?'); ?>" class="operate-button operate-delete typecho-table-select-submit"><?php _e('删除'); ?></span>
                     </p>
                     <p class="search">
                     <?php if ('' != $request->keywords): ?>
-                    <a href="<?php $options->adminUrl('manage-medias.php'); ?>"><?php _e('&laquo; Remove filter'); ?></a>
+                    <a href="<?php $options->adminUrl('manage-medias.php'); ?>"><?php _e('&laquo; 取消筛选'); ?></a>
                     <?php endif; ?>
-                    <input type="text" value="<?php '' != $request->keywords ? print(htmlspecialchars($request->keywords)) : _e('Please enter a keyword'); ?>"<?php if ('' == $request->keywords): ?> onclick="value='';name='keywords';" <?php else: ?> name="keywords"<?php endif; ?>/>
-                    <button type="submit"><?php _e('Filter'); ?></button>
+                    <input type="text" value="<?php '' != $request->keywords ? print(htmlspecialchars($request->keywords)) : _e('请输入关键字'); ?>"<?php if ('' == $request->keywords): ?> onclick="value='';name='keywords';" <?php else: ?> name="keywords"<?php endif; ?>/>
+                    <button type="submit"><?php _e('筛选'); ?></button>
                     </p>
                 </form>
                 </div>
@@ -48,11 +48,11 @@ $stat = Typecho_Widget::widget('Widget_Stat');
                             <th class="typecho-radius-topleft"> </th>
                             <th> </th>
                             <th> </th>
-                            <th><?php _e('File name'); ?></th>
+                            <th><?php _e('文件名'); ?></th>
                             <th> </th>
-                            <th><?php _e('The uploader'); ?></th>
-                            <th><?php _e('Belongs to the article'); ?></th>
-                            <th class="typecho-radius-topright"><?php _e('Release date'); ?></th>
+                            <th><?php _e('上传者'); ?></th>
+                            <th><?php _e('所属文章'); ?></th>
+                            <th class="typecho-radius-topright"><?php _e('发布日期'); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,14 +65,14 @@ $stat = Typecho_Widget::widget('Widget_Stat');
                             <td><span class="typecho-mime typecho-mime-<?php echo $mime; ?>"></span></td>
                             <td><a href="<?php $options->adminUrl('media.php?cid=' . $attachments->cid); ?>"><?php $attachments->title(); ?></a></td>
                             <td>
-                            <a class="right hidden-by-mouse" href="<?php $attachments->permalink(); ?>"><img src="<?php $options->adminUrl('images/view.gif'); ?>" title="<?php _e('Browse %s', $attachments->title); ?>" width="16" height="16" alt="view" /></a>
+                            <a class="right hidden-by-mouse" href="<?php $attachments->permalink(); ?>"><img src="<?php $options->adminUrl('images/view.gif'); ?>" title="<?php _e('浏览 %s', $attachments->title); ?>" width="16" height="16" alt="view" /></a>
                             </td>
                             <td><?php $attachments->author(); ?></td>
                             <td>
                             <?php if ($attachments->parentPost->cid): ?>
                             <a href="<?php $options->adminUrl('write-' . $attachments->parentPost->type . '.php?cid=' . $attachments->parentPost->cid); ?>"><?php $attachments->parentPost->title(); ?></a>
                             <?php else: ?>
-                            <span class="description"><?php _e('Not archived'); ?></span>
+                            <span class="description"><?php _e('未归档'); ?></span>
                             <?php endif; ?>
                             </td>
                             <td><?php $attachments->dateWord(); ?></td>
@@ -80,7 +80,7 @@ $stat = Typecho_Widget::widget('Widget_Stat');
                         <?php endwhile; ?>
                         <?php else: ?>
                         <tr class="even">
-                        	<td colspan="8"><h6 class="typecho-list-table-title"><?php _e('No attachments'); ?></h6></td>
+                        	<td colspan="8"><h6 class="typecho-list-table-title"><?php _e('没有任何附件'); ?></h6></td>
                         </tr>
                         <?php endif; ?>
                     </tbody>

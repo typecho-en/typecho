@@ -12,16 +12,16 @@ Typecho_Widget::widget('Widget_Themes_Files')->to($files);
         <div class="container typecho-page-main">
             <div class="column-24">
                 <ul class="typecho-option-tabs">
-                    <li><a href="<?php $options->adminUrl('themes.php'); ?>"><?php _e('Can use the theme'); ?></a></li>
+                    <li><a href="<?php $options->adminUrl('themes.php'); ?>"><?php _e('可以使用的外观'); ?></a></li>
                     <li class="current"><a href="<?php $options->adminUrl('theme-editor.php'); ?>">
                     <?php if ($options->theme == $files->theme): ?>
-                    <?php _e('Edit current theme'); ?>
+                    <?php _e('编辑当前外观'); ?>
                     <?php else: ?>
-                    <?php _e('Edit%theme', ' <cite>' . $files->theme . '</cite> '); ?>
+                    <?php _e('编辑%s外观', ' <cite>' . $files->theme . '</cite> '); ?>
                     <?php endif; ?>
                     </a></li>
                     <?php if (Widget_Themes_Config::isExists()): ?>
-                    <li><a href="<?php $options->adminUrl('options-theme.php'); ?>"><?php _e('Theme settings'); ?></a></li>
+                    <li><a href="<?php $options->adminUrl('options-theme.php'); ?>"><?php _e('设置外观'); ?></a></li>
                     <?php endif; ?>
                 </ul>
                 
@@ -40,9 +40,9 @@ Typecho_Widget::widget('Widget_Themes_Files')->to($files);
                                 <?php if($files->currentIsWriteable()): ?>
                                 <input type="hidden" name="theme" value="<?php echo $files->currentTheme(); ?>" />
                                 <input type="hidden" name="edit" value="<?php echo $files->currentFile(); ?>" />
-                                <button type="submit"><?php _e('Save file'); ?></button>
+                                <button type="submit"><?php _e('保存文件'); ?></button>
                                 <?php else: ?>
-                                    <h6 class="typecho-list-table-title"><?php _e('This file could not be written'); ?></h6>
+                                    <h6 class="typecho-list-table-title"><?php _e('此文件无法写入'); ?></h6>
                                 <?php endif; ?>
                             </div>
                         </form>

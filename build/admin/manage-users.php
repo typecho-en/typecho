@@ -11,18 +11,18 @@ include 'menu.php';
                 <div class="typecho-list-operate">
                 <form method="get">
                     <p class="operate">
-                    <?php _e('Operation'); ?>: 
-                    <span class="operate-button typecho-table-select-all"><?php _e('Select all'); ?></span>, 
-                    <span class="operate-button typecho-table-select-none"><?php _e('Do not select all'); ?></span>,&nbsp;&nbsp;&nbsp;
-                    <?php _e('Checked items'); ?>: 
-                    <span rel="delete" lang="<?php _e('Are you sure you want to delete the users?'); ?>" class="operate-button operate-delete typecho-table-select-submit"><?php _e('Delete'); ?></span>
+                    <?php _e('操作'); ?>: 
+                    <span class="operate-button typecho-table-select-all"><?php _e('全选'); ?></span>, 
+                    <span class="operate-button typecho-table-select-none"><?php _e('不选'); ?></span>,&nbsp;&nbsp;&nbsp;
+                    <?php _e('选中项'); ?>: 
+                    <span rel="delete" lang="<?php _e('你确认要删除这些用户吗?'); ?>" class="operate-button operate-delete typecho-table-select-submit"><?php _e('删除'); ?></span>
                     </p>
                     <p class="search">
                     <?php if ('' != $request->keywords): ?>
-                    <a href="<?php $options->adminUrl('manage-users.php'); ?>"><?php _e('&laquo; Remove filter'); ?></a>
+                    <a href="<?php $options->adminUrl('manage-users.php'); ?>"><?php _e('&laquo; 取消筛选'); ?></a>
                     <?php endif; ?>
-                    <input type="text" value="<?php '' != $request->keywords ? print(htmlspecialchars($request->keywords)) : _e('Please enter a keyword'); ?>"<?php if ('' == $request->keywords): ?> onclick="value='';name='keywords';" <?php else: ?> name="keywords"<?php endif; ?>/>
-                    <button type="submit"><?php _e('Filter'); ?></button>
+                    <input type="text" value="<?php '' != $request->keywords ? print(htmlspecialchars($request->keywords)) : _e('请输入关键字'); ?>"<?php if ('' == $request->keywords): ?> onclick="value='';name='keywords';" <?php else: ?> name="keywords"<?php endif; ?>/>
+                    <button type="submit"><?php _e('筛选'); ?></button>
                     </p>
                 </form>
                 </div>
@@ -41,12 +41,12 @@ include 'menu.php';
                     <thead>
                         <tr>
                             <th class="typecho-radius-topleft"> </th>
-                            <th><?php _e('User name'); ?></th>
-                            <th><?php _e('Nicknames'); ?></th>
+                            <th><?php _e('用户名'); ?></th>
+                            <th><?php _e('昵称'); ?></th>
                             <th> </th>
-                            <th><?php _e('E-mail'); ?></th>
-                            <th><?php _e('User group'); ?></th>
-                            <th class="typecho-radius-topright"><?php _e('Articles'); ?></th>
+                            <th><?php _e('电子邮件'); ?></th>
+                            <th><?php _e('用户组'); ?></th>
+                            <th class="typecho-radius-topright"><?php _e('文章'); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,24 +57,24 @@ include 'menu.php';
                             <td><a href="<?php $options->adminUrl('user.php?uid=' . $users->uid); ?>"><?php $users->name(); ?></a></td>
                             <td><?php $users->screenName(); ?></td>
                             <td>
-                            <a class="right hidden-by-mouse" href="<?php $users->permalink(); ?>"><img src="<?php $options->adminUrl('images/view.gif'); ?>" title="<?php _e('Browse %s', $users->screenName); ?>" width="16" height="16" alt="view" /></a>
+                            <a class="right hidden-by-mouse" href="<?php $users->permalink(); ?>"><img src="<?php $options->adminUrl('images/view.gif'); ?>" title="<?php _e('浏览 %s', $users->screenName); ?>" width="16" height="16" alt="view" /></a>
                             </td>
-                            <td><?php if($users->mail): ?><a href="mailto:<?php $users->mail(); ?>"><?php $users->mail(); ?></a><?php else: _e('No'); endif; ?></td>
+                            <td><?php if($users->mail): ?><a href="mailto:<?php $users->mail(); ?>"><?php $users->mail(); ?></a><?php else: _e('暂无'); endif; ?></td>
                             <td><?php switch ($users->group) {
                                 case 'administrator':
-                                    _e('Admin');
+                                    _e('管理员');
                                     break;
                                 case 'editor':
-                                    _e('Editor');
+                                    _e('编辑');
                                     break;
                                 case 'contributor':
-                                    _e('Contributors');
+                                    _e('贡献者');
                                     break;
                                 case 'subscriber':
-                                    _e('Followers');
+                                    _e('关注者');
                                     break;
                                 case 'visitor':
-                                    _e('Visitors');
+                                    _e('访问者');
                                     break;
                                 default:
                                     break;

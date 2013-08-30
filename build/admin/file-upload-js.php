@@ -13,7 +13,7 @@ if (isset($post) && $post instanceof Typecho_Widget && $post->have()) {
     
         var _title = $(el).getParent('li').getElement('strong');
         
-        if (!confirm("<?php _e('You to confirm the deletion of attachments %s ?'); ?>".replace("%s", _title.get('text').trim()))) {
+        if (!confirm("<?php _e('你确认删除附件 %s 吗?'); ?>".replace("%s", _title.get('text').trim()))) {
             return;
         }
 
@@ -27,7 +27,7 @@ if (isset($post) && $post instanceof Typecho_Widget && $post->have()) {
                     $(el).getParent('li').destroy();
                 } else {
                     _title.removeClass('delete');
-                    alert('<?php _e('Delete failed'); ?>');
+                    alert('<?php _e('删除失败'); ?>');
                 }
             }
         }).send('do=delete&cid=' + cid);
@@ -48,7 +48,7 @@ if (isset($post) && $post instanceof Typecho_Widget && $post->have()) {
                 
                 var swfuploadLoaded = function () {
                     $(document).getElement('#upload-panel .button')
-                    .set('html', '<?php _e('Upload file'); ?> <small style="font-weight:normal">(<?php echo ini_get('upload_max_filesize'); ?>)</small>');
+                    .set('html', '<?php _e('上传文件'); ?> <small style="font-weight:normal">(<?php echo ini_get('upload_max_filesize'); ?>)</small>');
                 };
             
                 var fileDialogComplete = function (numFilesSelected, numFilesQueued) {
@@ -75,8 +75,8 @@ if (isset($post) && $post instanceof Typecho_Widget && $post->have()) {
                     
                     _el.set('html', '<strong>' + file.name + 
                     '<input type="hidden" name="attachment[]" value="' + _result.cid + '" /></strong>' + 
-                    '<small><span class="insert"><?php _e('Insert'); ?></span>' +
-                    ' , <span class="delete"><?php _e('Delete'); ?></span></small>');
+                    '<small><span class="insert"><?php _e('插入'); ?></span>' +
+                    ' , <span class="delete"><?php _e('删除'); ?></span></small>');
                     _el.set('tween', {duration: 1500});
                     
                     _el.setStyles({
@@ -111,7 +111,7 @@ if (isset($post) && $post instanceof Typecho_Widget && $post->have()) {
                     var _el = $(document).getElement('#' + file.id);
                     var _fx = new Fx.Tween(_el, {duration: 3000});
                     
-                    _el.set('html', '<strong>' + file.name + ' <?php _e('Upload failed'); ?></strong>');
+                    _el.set('html', '<strong>' + file.name + ' <?php _e('上传失败'); ?></strong>');
                     _el.setStyles({
                         'background-image' : 'none',
                         'color'            : '#FFFFFF',
@@ -162,7 +162,7 @@ if (isset($post) && $post instanceof Typecho_Widget && $post->have()) {
         }
     }
 ?>",
-                    file_types_description : "<?php _e('All the files'); ?>",
+                    file_types_description : "<?php _e('所有文件'); ?>",
                     file_upload_limit : 0,
                     file_queue_limit : 0,
                     debug: false,
