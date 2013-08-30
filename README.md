@@ -1,20 +1,23 @@
 #Typecho主程序翻译计划
-##项目内容
+###项目内容
 翻译Typecho主程序供更多的人使用，推广typecho
-##项目成员
+###项目成员
 Tianyu    		tfang.talk@gmail.com  
 YoungZhao		656711352@qq.com  
 ChengGuo		bob@tefans.org
-##主程序
+###主程序
 Typecho 0.8 - 10.8.15 构建
-##授权协议
+###授权协议
 采用GUN v2协议（与Tyoecho原程序协议相同）
-##项目地址##
+###项目地址
 + github https://github.com/YoungZhao/translate-typecho  
 + gitcafe  
 + google code
 
-##目录
+###进度
+翻译非后台界面的文件
+
+###目录
 <table cellpadding="0" cellspacing="0" class="c9">
     <tbody>
         <tr class="c2">
