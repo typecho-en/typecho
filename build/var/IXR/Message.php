@@ -8,7 +8,7 @@
 */
 
 /**
- * IXR消息
+ * IXR Message
  *
  * @package IXR
  */

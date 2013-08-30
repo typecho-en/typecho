@@ -7,40 +7,40 @@
    Made available under the Artistic License: http://www.opensource.org/licenses/artistic-license.php
 */
 
-/** IXR值 */
+/** IXR Values */
 require_once 'IXR/Value.php';
 
-/** IXR消息 */
+/** IXR Messages */
 require_once 'IXR/Message.php';
 
-/** IXR请求体 */
+/** IXR Request */
 require_once 'IXR/Request.php';
 
-/** IXR错误 */
+/** IXR Error */
 require_once 'IXR/Error.php';
 
-/** IXR日期 */
+/** IXR Date */
 require_once 'IXR/Date.php';
 
-/** IXR Base64编码 */
+/** IXR Base64 Code */
 require_once 'IXR/Base64.php';
 
 /** Typecho_Http_Client */
 require_once 'Typecho/Http/Client.php';
 
 /**
- * IXR客户端
+ * IXR Client
  * reload by typecho team(http://www.typecho.org)
  *
  * @package IXR
  */
 class IXR_Client
 {
-    /** 默认客户端 */
+    /** Default Client */
     const DEFAULT_USERAGENT = 'The Incutio XML-RPC PHP Library(Reload By Typecho)';
 
     /**
-     * 服务端地址
+     * Server Address
      *
      * @access private
      * @var string
@@ -48,7 +48,7 @@ class IXR_Client
     private $server;
 
     /**
-     * 端口名称
+     * Port Name
      *
      * @access private
      * @var integer
@@ -56,7 +56,7 @@ class IXR_Client
     private $port;
 
     /**
-     * 路径名称
+     * Path Name
      *
      * @access private
      * @var string
@@ -64,7 +64,7 @@ class IXR_Client
     private $path;
 
     /**
-     * 地址
+     * Address Url
      *
      * @access private
      * @var string
@@ -72,7 +72,7 @@ class IXR_Client
     private $url;
 
     /**
-     * 客户端
+     * User Agent
      *
      * @access private
      * @var string
@@ -80,7 +80,7 @@ class IXR_Client
     private $useragent;
 
     /**
-     * 回执结构体
+     * Responsing
      *
      * @access private
      * @var string
@@ -88,7 +88,7 @@ class IXR_Client
     private $response;
 
     /**
-     * 消息体
+     * Message
      *
      * @access private
      * @var string
@@ -96,7 +96,7 @@ class IXR_Client
     private $message = false;
 
     /**
-     * 调试开关
+     * Debug Switcher
      *
      * @access private
      * @var boolean
@@ -104,7 +104,7 @@ class IXR_Client
     private $debug = false;
 
     /**
-     * 请求前缀
+     * Requesting Prefix
      *
      * @access private
      * @var string
@@ -118,10 +118,10 @@ class IXR_Client
      * 客户端构造函数
      *
      * @access public
-     * @param string $server 服务端地址
-     * @param string $path 路径名称
-     * @param integer $port 端口名称
-     * @param string $useragent 客户端
+     * @param string $server Server Address
+     * @param string $path Path Name
+     * @param integer $port Port Name
+     * @param string $useragent UserAgent
      * @return void
      */
     public function __construct($server, $path = false, $port = 80, $useragent = self::DEFAULT_USERAGENT, $prefix = NULL)
@@ -160,7 +160,7 @@ class IXR_Client
     }
 
     /**
-     * 设置调试模式
+     * Setting Debug Mode
      *
      * @access public
      * @return void
@@ -171,7 +171,7 @@ class IXR_Client
     }
 
     /**
-     * 执行请求
+     * Executing Request
      *
      * @access public
      * @return void
@@ -219,13 +219,13 @@ class IXR_Client
     }
 
     /**
-     * 增加前缀
+     * Adding Prefix
      * <code>
      * $rpc->metaWeblog->newPost();
      * </code>
      *
      * @access public
-     * @param string $prefix 前缀
+     * @param string $prefix Prefix
      * @return void
      */
     public function __get($prefix)
@@ -234,7 +234,7 @@ class IXR_Client
     }
 
     /**
-     * 增加魔术特性
+     * Adding Magic Feature
      * by 70
      *
      * @access public
@@ -254,7 +254,7 @@ class IXR_Client
     }
 
     /**
-     * 获得返回值
+     * Get Response Value
      *
      * @access public
      * @return void
@@ -266,7 +266,7 @@ class IXR_Client
     }
 
     /**
-     * 是否为错误
+     * Detect Error
      *
      * @access public
      * @return void
@@ -277,7 +277,7 @@ class IXR_Client
     }
 
     /**
-     * 获取错误代码
+     * Get Error Code
      *
      * @access public
      * @return void
@@ -288,7 +288,7 @@ class IXR_Client
     }
 
     /**
-     * 获取错误消息
+     * Get Error Information
      *
      * @access public
      * @return void

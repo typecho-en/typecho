@@ -11,7 +11,7 @@
 require_once 'IXR/Server.php';
 
 /**
- * IXR服务器
+ * IXR Server
  *
  * @package IXR
  */

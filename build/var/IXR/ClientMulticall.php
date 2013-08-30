@@ -11,7 +11,7 @@
 require_once 'IXR/Clinet.php';
 
 /**
- * IXR客户端
+ * IXR Client
  *
  * @package IXR
  */

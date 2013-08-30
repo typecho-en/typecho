@@ -8,7 +8,7 @@
 */
 
 /**
- * IXR异常类
+ * IXR Exception
  *
  * @package IXR
  */

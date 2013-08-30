@@ -8,7 +8,7 @@
 */
 
 /**
- * IXR值
+ * IXR Value
  *
  * @package IXR
  */
