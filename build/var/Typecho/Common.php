@@ -163,7 +163,7 @@ class Typecho_Common
     }
     
     /**
-     * 解析属性
+     * Parsing Attribute
      * 
      * @access public
      * @param string $attrs Attribute String
@@ -224,7 +224,7 @@ class Typecho_Common
     }
 
     /**
-     * 清除属性空格
+     * Clean Attribute Spaces
      * 
      * @access public
      * @param string $attr Attribute
@@ -265,9 +265,9 @@ class Typecho_Common
         function __autoLoad($className)
         {
             /**
-             * 自动载入函数并不判断此类的文件是否存在, 我们认为当你显式的调用它时, 你已经确认它存在了
-             * 如果真的无法被加载, 那么系统将出现一个严重错误(Fetal Error)
-             * 如果你需要判断一个类能否被加载, 请使用 Typecho_Common::isAvailableClass 方法
+             * Auto-Load function won't detect if class files are exist, we think you confirmed its existing
+             * If it can't be loaded, the system will have a fetal error.
+             * If you want to detect if a class can be loaded, please use Typecho_Common::isAvailableClass
              */
             @include_once str_replace('_', '/', $className) . '.php';
         }
@@ -291,7 +291,7 @@ class Typecho_Common
      * Exception Handle Function
      *
      * @access public
-     * @param Exception $exception 截获的异常
+     * @param Exception $exception Handled Exception
      * @return void
      */
     public static function exceptionHandle(Exception $exception)
@@ -348,7 +348,7 @@ class Typecho_Common
             $code = 500;
             @error_log($message);
 
-            //覆盖原始错误信息
+            //Replacing Original Error Information
             $message = 'Database Server Error';
 
             if ($exception instanceof Typecho_Db_Adapter_Exception) {
@@ -456,21 +456,21 @@ EOF;
 
     /**
      * Detect if class can be loaded
-     * 此函数会遍历所有的include目录, 所以会有一定的性能消耗, 但是不会很大
-     * 可是我们依然建议你在必须检测一个类能否被加载时使用它, 它通常表现为以下两种情况
-     * 1. 当需要被加载的类不存在时, 系统不会停止运行 (如果你不判断, 系统会因抛出严重错误而停止)
-     * 2. 你需要知道哪些类无法被加载, 以提示使用者
-     * 除了以上情况, 你无需关注那些类无法被加载, 因为当它们不存在时系统会自动停止并报错
+     * This function will look through all include directory, so it will take some performance coefficient, but a little
+     * But we still suggest use it when you detect if a class can be loaded, it will act:
+     * 1. When the class needed to load is not exist, the system will not stop running (If you don't detect, the system will stop because of outputing fetal errors)
+     * 2. You need to know which classes can't be loaded to give user a hint
+     * Except these situation, you don't need to care which classes can't be loaded, because the system will stop and show the error automatically when they are not exist
      *
      * @access public
-     * @param string $className 类名
-     * @param string $path 指定的路径名称
+     * @param string $className Class Name
+     * @param string $path Specified Path Name
      * @return boolean
      */
     public static function isAvailableClass($className, $path = NULL)
     {
-        /** 获取所有include目录 */
-        //增加安全目录检测 fix issue 106
+        /** Get All Include Path */
+        //Added Safe Path Detecting fix issue 106
         $dirs = array_map('realpath', array_filter(explode(PATH_SEPARATOR, get_include_path()),
         array('Typecho_Common', '__safePath')));
 
@@ -546,7 +546,7 @@ EOF;
      * Rebuilding url according to parse_url results
      *
      * @access public
-     * @param array $params 解析后的参数
+     * @param array $params Parsed Parameters
      * @return string
      */
     public static function buildUrl($params)
@@ -584,8 +584,8 @@ EOF;
     }
 
     /**
-     * 自闭合html修复函数
-     * 使用方法:
+     * Auto-close HTML Fix Function
+     * Use:
      * <code>
      * $input = '这是一段被截断的html文本<a href="#"';
      * echo Typecho_Common::fixHtml($input);
@@ -593,7 +593,7 @@ EOF;
      * </code>
      *
      * @access public
-     * @param string $string 需要修复处理的字符串
+     * @param string $string The string needed to fix
      * @return string
      */
     public static function fixHtml($string)
@@ -611,7 +611,7 @@ EOF;
             $string = substr($string, 0, $startPos);
         }
 
-        //非自闭合html标签列表
+        //Not Auto-close HTML Tag List
         preg_match_all("/<([_0-9a-zA-Z-\:]+)\s*([^>]*)>/is", $string, $startTags);
         preg_match_all("/<\/([_0-9a-zA-Z-\:]+)>/is", $string, $closeTags);
 
@@ -637,7 +637,7 @@ EOF;
     }
 
     /**
-     * 去掉字符串中的html标签
+     * Clean HTML Tag in the string
      * Use:
      * <code>
      * $input = '<a href="http://test/test.php" title="example">hello</a>';
@@ -647,8 +647,8 @@ EOF;
      * </code>
      *
      * @access public
-     * @param string $string 需要处理的字符串
-     * @param string $allowableTags 需要忽略的html标签
+     * @param string $string The string needed to do
+     * @param string $allowableTags The string needed to lgnore
      * @return string
      */
     public static function stripTags($html, $allowableTags = NULL)
@@ -725,7 +725,7 @@ EOF;
      * 过滤用于搜索的字符串
      *
      * @access public
-     * @param string $query 搜索字符串
+     * @param string $query Search String
      * @return string
      */
     public static function filterSearchQuery($query)
@@ -742,7 +742,7 @@ EOF;
      */
     public static function safeUrl($url)
     {
-        //~ 针对location的xss过滤, 因为其特殊性无法使用removeXSS函数
+        //~ XSS removing for location, because it can't be used removeXSS function
         //~ fix issue 66
         $params = parse_url(str_replace(array("\r", "\n"), '', $url));
 
@@ -849,10 +849,10 @@ EOF;
     }
 
     /**
-     * 获取宽字符串长度函数
+     * Getting String Length Function
      *
      * @access public
-     * @param string $str 需要获取长度的字符串
+     * @param string $str The string needed to do
      * @return integer
      */
     public static function strLen($str)
@@ -866,12 +866,12 @@ EOF;
     }
 
     /**
-     * 生成缩略名
+     * Generating Abbreviated Name
      *
      * @access public
-     * @param string $str 需要生成缩略名的字符串
-     * @param string $default 默认的缩略名
-     * @param integer $maxLength 缩略名最大长度
+     * @param string $str The String needed to do
+     * @param string $default Default Abbreviated Name
+     * @param integer $maxLength The Maxinum length of Abbreviated Name
      * @return string
      */
     public static function slugName($str, $default = NULL, $maxLength = 200)
@@ -954,8 +954,8 @@ EOF;
      * Generating Random String
      *
      * @access public
-     * @param integer $length 字符串长度
-     * @param string $specialChars 是否有特殊字符
+     * @param integer $length String Length
+     * @param string $specialChars Detect if it have special characters
      * @return string
      */
     public static function randString($length, $specialChars = false)
@@ -974,11 +974,11 @@ EOF;
     }
 
     /**
-     * 对字符串进行hash加密
+     * String Hash Encoding
      *
      * @access public
-     * @param string $string 需要hash的字符串
-     * @param string $salt 扰码
+     * @param string $string The string needed to hash
+     * @param string $salt Scrambler
      * @return string
      */
     public static function hash($string, $salt = NULL)
@@ -990,7 +990,7 @@ EOF;
         $last = ord($string[$length - 1]);
         $pos = 0;
 
-        /** 判断扰码长度 */
+        /** Detect Scrambler Length */
         if (strlen($salt) != 9) {
             /** 如果不是9直接返回 */
             return;
