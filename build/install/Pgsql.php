@@ -1,26 +1,26 @@
 <?php if(!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <li>
-<label class="typecho-label"><?php _e('数据库地址'); ?></label>
+<label class="typecho-label"><?php _e('Database Address'); ?></label>
 <input type="text" class="text" name="dbHost" value="<?php _v('dbHost', 'localhost'); ?>"/>
-<p class="description"><?php _e('您可能会使用 "localhost"'); ?></p>
+<p class="description"><?php _e('You may be using it "localhost"'); ?></p>
 </li>
 <li>
-<label class="typecho-label"><?php _e('数据库端口'); ?></label>
+<label class="typecho-label"><?php _e('Database Ports'); ?></label>
 <input type="text" class="text" name="dbPort" value="<?php _v('dbPort', '5432'); ?>"/>
-<p class="description"><?php _e('如果您不知道此选项的意义, 请保留默认设置'); ?></p>
+<p class="description"><?php _e('If you do not know the meaning of this option, please keep the default Settings'); ?></p>
 </li>
 <li>
-<label class="typecho-label"><?php _e('数据库用户名'); ?></label>
+<label class="typecho-label"><?php _e('Database username'); ?></label>
 <input type="text" class="text" name="dbUser" value="<?php _v('dbUser', 'postgres'); ?>" />
-<p class="description"><?php _e('您可能会使用 "postgres"'); ?></p>
+<p class="description"><?php _e('You may be using it "postgres"'); ?></p>
 </li>
 <li>
-<label class="typecho-label"><?php _e('数据库密码'); ?></label>
+<label class="typecho-label"><?php _e('Database password'); ?></label>
 <input type="password" class="text" name="dbPassword" value="<?php _v('dbPassword'); ?>" />
 </li>
 <li>
-<label class="typecho-label"><?php _e('数据库名'); ?></label>
+<label class="typecho-label"><?php _e('Database name'); ?></label>
 <input type="text" class="text" name="dbDatabase" value="<?php _v('dbDatabase', 'typecho'); ?>" />
-<p class="description"><?php _e('请您指定数据库名称'); ?></p>
+<p class="description"><?php _e('Please specify the name of the database'); ?></p>
 </li>
 <input type="hidden" name="dbCharset" value="<?php _e('utf8'); ?>" />
