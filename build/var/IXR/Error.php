@@ -8,14 +8,14 @@
 */
 
 /**
- * IXR错误
+ * IXR Errpr
  *
  * @package IXR
  */
 class IXR_Error
 {
     /**
-     * 错误代码
+     * Error Code
      *
      * @access public
      * @var integer
@@ -23,7 +23,7 @@ class IXR_Error
     public $code;
 
     /**
-     * 错误消息
+     * Error Message
      *
      * @access public
      * @var string
@@ -31,11 +31,11 @@ class IXR_Error
     public $message;
 
     /**
-     * 构造函数
+     * Constructing Function
      *
      * @access public
-     * @param integer $code 错误代码
-     * @param string $message 错误消息
+     * @param integer $code Error Code
+     * @param string $message Error Message
      * @return void
      */
     public function __construct($code, $message)
@@ -45,7 +45,7 @@ class IXR_Error
     }
 
     /**
-     * 获取xml
+     * Get xml
      *
      * @access public
      * @return string
