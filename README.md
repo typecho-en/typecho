@@ -4,7 +4,8 @@
 ###项目成员
 Tianyu    		tfang.talk@gmail.com  
 YoungZhao		656711352@qq.com  
-ChengGuo		bob@tefans.org
+ChengGuo		bob@tefans.org  
+Jonnes
 ###主程序
 Typecho 0.8 - 10.8.15 构建
 ###授权协议
